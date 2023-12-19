@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Blackjack</title>
+</head>
+<body>
+    <div id="app" class="flex-v">
+        <div id="game">
+            <div id="opponent">
+                
+            </div>
+            <div id="player">
+                
+            </div>
+        </div>
+
+        <div id="givenTokens" class="flex-v">
+            <div v-for="token in givenTokens" :style="{ background: token.color, top: token.top + 'px', left: token.left + 'px' }" class="token">{{ token.value }}</div>
+        </div>
+
+        <div v-if="gameOn" class="menu flex-v">
+            <div class="moneyBox">
+                <h2>{{ given }}</h2>
+                <img src="IMG/coin.png">
+            </div>
+        </div>
+
+        <div v-else class="menu flex-v">
+            <div class="moneyBox">
+                <h2>{{ given }}</h2>
+                <img src="IMG/coin.png">
+            </div>
+            <div id="giveButtonsContainer" class="flex-h">
+                <div @click="accept"><img src="IMG/accept.png"></div>
+                <div><img src="IMG/cancel.png"></div>
+            </div>
+            <div id="tokens" class="flex-h">
+                <div v-for="token in tokens" :style="{ background: token.color }" @click="giveMoney(token)" class="token">{{ token.value }}</div>
+            </div>
+        </div>
+        
+        <div class="moneyBox absoluteMoneyBox" class="flex-h"> {{ money }} <img src="IMG/coin.png"> </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+@keyframes moveTokens {
+    0% {top: 0%}
+    100% {top: -12%}
+}
+
+@keyframes moveTokensBack {
+    0% {top: -12%}
+    100% {top: 0%}
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-h{
+    display: flex;
+}
+
+.flex-v{
+    display: flex;
+    flex-direction: column;
+}
+
+#app{
+    align-items: center;
+    height: 100vh;
+}
+
+#game{
+    height: 65%;
+    width: 100%;
+    background: #0E4331;
+}
+
+#game > div{
+    height: 50%;
+    width: 100%;
+}
+
+.menu{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#tokens{
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#tokens > div{
+    transition: .2s ease-in-out;
+}
+
+#tokens > div:hover{
+    transform: scale(1.05);
+}
+
+.token{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    outline: 5px solid white;
+    outline-offset: -10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    user-select: none;
+}
+
+.token:hover{
+    cursor: pointer;
+}
+
+.moneyBox{
+    display: flex;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    height: 50px;
+    align-items: center;
+    font-size: 1.3rem;
+    gap: 10px;
+    vertical-align: middle;
+}
+
+.moneyBox:hover{
+    cursor: default;
+    user-select: none;
+}
+
+.moneyBox > img{
+    height: 100%;
+}
+
+.absoluteMoneyBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+}
+
+#givenTokens{
+    position: relative;
+    height: 80px;
+    width: 80px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#givenTokens > div{
+    position: absolute;
+}
+
+.givenTokensAnimation{
+    animation-name: moveTokens;
+    animation-duration: 1s;
+    margin-bottom: -80px;
+}
+
+#giveButtonsContainer{
+    gap: 55px;
+    margin: 10px;
+}
+
+#giveButtonsContainer > div{
+    width: 80px;
+    height: 80px;
+    background: black;
+    outline: 5px solid white;
+    outline-offset: -10px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s ease-in-out;
+}
+
+#giveButtonsContainer > div:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#giveButtonsContainer > div > img{
+    height: 50%;
+}
+
+@media only screen and (max-width: 800px){
+    /* #tokens{
+        flex-direction: column;
+    } */
+}
