@@ -70,6 +70,7 @@ const app = Vue.createApp({
                 new Card('spades', 'K'),
                 new Card('spades', 'A')
             ],
+            deck: [],
             tokens:[
                 new Token(5, '#E03A3A'),
                 new Token(10, '#3962DD'),
@@ -97,13 +98,18 @@ const app = Vue.createApp({
                 this.givenTokens.push(new Token(token.value, token.color, this.random(-8, 8), this.random(-8, 8)))
             }
         },
-        startGame(){
-            this.gameOn = true;
-        },
         accept(){
             document.querySelector('#givenTokens').style.top = '-12%'
             document.querySelector('#givenTokens').classList += ' givenTokensAnimation'
-            this.startGame()
+            this.gameOn = true;
+            this.deck = this.fullDeck.slice()
+            setTimeout(this.draw, 500, this.playerCards)
+            setTimeout(this.draw, 1000, this.opponentCards)
+        },
+        draw(deck){
+            const cardId = this.random(0, this.deck.length) 
+            deck.push(this.deck[cardId])
+            this.deck.splice(cardId, 1)
         }
     }
 })

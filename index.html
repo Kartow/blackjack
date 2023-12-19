@@ -10,11 +10,30 @@
 <body>
     <div id="app" class="flex-v">
         <div id="game">
-            <div id="opponent">
-                
+            <div id="opponent" class="flex-v">
+                <div v-for="card in opponentCards" class="card appearCard">
+                    <h1>{{ card.number }}</h1>
+                    <img :src="'IMG/' + card.suit + '.png'">
+                    <h1>{{ card.number }}</h1>
+                </div>
             </div>
-            <div id="player">
-                
+            <div id="player" class="flex-v">
+                <div class="cards flex-h">
+                    <div v-for="card in playerCards" class="card appearCard">
+                        <h1>{{ card.number }}</h1>
+                        <img :src="'IMG/' + card.suit + '.png'">
+                        <h1>{{ card.number }}</h1>
+                    </div>
+                </div>
+
+                <div v-if="gameOn" id="control" class="flex-h">
+                    <div>
+                        <img src="IMG/stand.png">
+                    </div>
+                    <div @click="draw(this.playerCards)">
+                        <img src="IMG/hit.png">
+                    </div>
+                </div>
             </div>
         </div>
 

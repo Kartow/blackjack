@@ -8,6 +8,22 @@
     100% {top: 0%}
 }
 
+@keyframes descend {
+    0% {
+        transform: translateY(-15px) rotate(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotate(1deg);
+        opacity: 1;
+    }
+}
+
+.appearCard{
+    animation-name: descend;
+    animation-duration: 1s;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -35,8 +51,41 @@
 }
 
 #game > div{
+    display: flex;
+    align-items: center;
     height: 50%;
     width: 100%;
+    padding: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 160px;
+    background: white;
+    margin-top: 10px;
+    padding: 10px 0;
+    box-shadow: 0 0 5px #aaa;
+    transform: rotate(1deg);
+}
+
+.card:not(:first-child){
+    margin-left: -20px;
+}
+
+.card > img{
+    width: 70%;
+}
+
+.card > h1{
+    width: 90%;
+}
+
+.card > h1:nth-child(3){
+    text-align: right;
 }
 
 .menu{
@@ -64,7 +113,7 @@
     align-items: center;
     color: white;
     font-size: 2rem;
-    outline: 5px solid white;
+    outline: 5px dashed white;
     outline-offset: -10px;
     width: 80px;
     height: 80px;
@@ -150,8 +199,25 @@
     height: 50%;
 }
 
-@media only screen and (max-width: 800px){
-    /* #tokens{
-        flex-direction: column;
-    } */
+#control{
+    gap: 120px;
+}
+
+#control > div{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#control > div:hover{
+    cursor: pointer;
+}
+
+#control > div > img{
+    width: 100%;
+}
+
+#player{
+    justify-content: flex-end;
 }
